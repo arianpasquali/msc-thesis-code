@@ -1,7 +1,7 @@
-Code related to my MSc thesis entitled Automatic Coherence Evaluation applied to topic models
-==============================================================================================
+Code related to my MSc thesis
+=============================
 
-Automatic coherence evaluation applied to topic models.
+thesis title: Automatic coherence evaluation applied to topic models.
 
 Project Organization
 ------------
