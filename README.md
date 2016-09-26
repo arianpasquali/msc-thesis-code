@@ -1,5 +1,5 @@
-coherence-evaluation-applied-to-topic-models
-==============================
+Code related to my MSc thesis entitled Automatic Coherence Evaluation applied to topic models
+==============================================================================================
 
 Automatic coherence evaluation applied to topic models.
 
