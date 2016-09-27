@@ -9,8 +9,8 @@ from sklearn.datasets import fetch_20newsgroups
 
 
 @click.command()
-@click.option('--elastic_address', default="http://localhost:9200", prompt='Inform Elastic Search Address', help='ElasticSearch address')
-@click.option('--elastic_index' default="20newsgroup",help='The person to greet.')
+@click.option('--elastic_address', default="localhost:9200", prompt='Inform Elastic Search Address', help='ElasticSearch address')
+@click.option('--elastic_index', default="20newsgroups",help='The person to greet.')
 def main(elastic_address, elastic_index):
     """ Runs data processing scripts to turn raw data from (../raw) into
         cleaned data ready to be analyzed (saved in ../processed).
