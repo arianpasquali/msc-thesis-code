@@ -4,8 +4,6 @@
 # GLOBALS                                                                       #
 #################################################################################
 
-BUCKET = [OPTIONAL] your-bucket-for-syncing-data (do not include 's3://')
-
 #################################################################################
 # COMMANDS                                                                      #
 #################################################################################
@@ -16,23 +14,23 @@ requirements:
 install_elasticsearch:
 	src/data/install_elasticsearch.sh
 
-index_wikipedia_en:
-	src/data/install_elasticsearch.sh	
+# index_wikipedia_en:
+	# src/data/install_elasticsearch.sh	
 
 data: requirements
 	python src/data/make_dataset.py
+
+train: data
+	python src/data/train_lda_model.py
+
+coherence: train
+	python src/models/compute_coherence.py
 
 clean:
 	find . -name "*.pyc" -exec rm {} \;
 
 lint:
 	flake8 --exclude=lib/,bin/,docs/conf.py .
-
-sync_data_to_s3:
-	aws s3 sync data/ s3://$(BUCKET)/data/
-
-sync_data_from_s3:
-	aws s3 sync s3://$(BUCKET)/data/ data/
 
 #################################################################################
 # PROJECT RULES                                                                 #
