@@ -43,7 +43,6 @@ class TopicCoherence(object):
 
 	@staticmethod
 	def entropy(scores):
-		# min_max_scaler = preprocessing.MinMaxScaler(feature_range=(0,1))
 		return stats.entropy(scores)
 
 	@abstractmethod
@@ -57,13 +56,9 @@ class TopicCoherence(object):
 
 	def get_hit_count_for_terms(self, es_index_name, field, terms):
 		must_query = []
-		# print(terms)
 		exact_terms = ["\"" + x + "\"" for x in terms]
 		lucene_query = " AND ".join(exact_terms)
-		# lucene_query = "\"" + lucene_query + "\"~10"
-
-		# query_doc_type = "page"
-
+		
 		res = self.es.search(index=es_index_name, 
 		                     q=lucene_query,
 		                     doc_type=self.doc_type)
@@ -99,9 +94,6 @@ class UCI(TopicCoherence):
                                                      self.word_probability[word_j])
 	
 	
-	# def compute_word_hits(self,word):
-	# 	super(UCI).compute_word_hits(words)
-
 	def compute_coherence(self, prob_ngrams, prob_ngram_a, prob_ngram_b):
 		1 if (prob_ngram_a == 0) else prob_ngram_a
 		1 if (prob_ngram_b == 0) else prob_ngram_b
@@ -229,57 +221,3 @@ class UMass(TopicCoherence):
 		    super(UMass,self).__init__(index_name, doc_type,es_address)
 		
 
-# from models.topic_coherence import ExtrinsicUCI, IntrisicUMass
-# import logging
-# log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-# logging.basicConfig(level=logging.INFO, format=log_fmt)
-# logger = logging.getLogger(__name__)
-
-# IMPORTANTE
-# remover queries redundantes pra melhorar a performance
-# suportar cache local das queries
-# incluir na tese a formula da combinatoria (factorial)
-# combinacoes de 2 em um conjunto de 10 elementos da 45 combinacoes possiveis. 
-# colocar isso na tese. pegar formula online
-
-
-
-external_index = "enwiki"
-internal_index = "20newsgroups"
-test_es_address = "localhost:9200"
-
-test_word_set = "card windows monitor video mac com mouse pc dos apple".split(" ")
-# space launch nasa earth shuttle solar satellite water mission lunar
-
-start = datetime.datetime.now()
-extrinsic_uci = UCI(external_index,"page",test_es_address)
-intrinsic_uci = UCI(internal_index,"page",test_es_address)
-
-intrinsic_uci.fit(test_word_set)
-print("UCI scores : ")
-print("		Extrinsic : " + str(extrinsic_uci.fit(test_word_set)))
-print("		Intrinsic : " + str(intrinsic_uci.fit(test_word_set)))		
-
-stop = datetime.datetime.now()
-elapsed = stop - start
-
-print("uci " + str(elapsed))
-print("")
-start = datetime.datetime.now()
-extrinsic_umass = UMass(external_index,"page",test_es_address)
-intrinsic_umass = UMass(internal_index,"page",test_es_address)
-
-
-intrinsic_umass.fit(test_word_set)
-print("UMass scores : ")
-print("		Extrinsic : " + str(extrinsic_umass.fit(test_word_set)))
-print("		Intrinsic : " + str(intrinsic_umass.fit(test_word_set)))		
-
-stop = datetime.datetime.now()
-elapsed = stop - start
-
-print("umass " + str(elapsed))
-# scores = [432.271083961,461.426691487,429.971345045,446.414313959,379.716627031,405.89737182,366.990366469,361.852959292,329.815378425,334.170518947,312.518867844,291.030767201,288.21575812,326.295192285,323.680871595,309.859856707,284.889898939,271.064573885,261.778338627,225.376870553]
-
-# print("norm l2", TopicCoherence.normalize(scores))
-# print("entropy", TopicCoherence.entropy(scores))
