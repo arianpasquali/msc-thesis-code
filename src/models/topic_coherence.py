@@ -35,8 +35,6 @@ class TopicCoherence(object):
 		scores = scores.reshape(1,-1)
 
 		min_max_scaler = preprocessing.Normalizer()
-		# min_max_scaler = preprocessing.MinMaxScaler(feature_range=(0,1))
-
 		normalized_scores = min_max_scaler.fit_transform(scores)
 
 		return normalized_scores[0].tolist()
@@ -123,6 +121,7 @@ class UCI(TopicCoherence):
 				if(word_i is not word_j):
 					pairwise_key = "_".join(sorted([word_i,word_j]))
 					if(pairwise_key not in self.pairwise_probability.keys()):		            
+						self.pairwise_probability[pairwise_key] = 0
 						self.pairwise.append(pairwise_key)
 
 		pool = ThreadPool(N_CPUS)
@@ -164,7 +163,6 @@ class UMass(TopicCoherence):
 		1 if(prob_ngram_a == 0) else prob_ngram_a
 		1 if(prob_ngram_b == 0) else prob_ngram_b
 
-		# e = math.pow(10,-12)
 		prob_product = (prob_ngrams + self.epsilon) / (prob_ngram_a)
 		1 if(prob_product == 0.0) else prob_product
 
@@ -205,6 +203,7 @@ class UMass(TopicCoherence):
 							pairwise_key = most_rare_ngram + "_" + most_common_ngram
 
 							if(pairwise_key not in self.pairwise_probability.keys()):
+								self.pairwise_probability[pairwise_key] = 0
 
 								self.pairwise[pairwise_key]= {
 									"most_common_ngram":most_common_ngram,
