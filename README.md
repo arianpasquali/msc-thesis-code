@@ -1,10 +1,33 @@
 Code related to my MSc thesis
 =============================
 
-thesis title: Automatic coherence evaluation applied to topic models.
+This project contains source code related to my Msc thesis entitled `Automatic coherence evaluation applied to topic models'.
+To explore it you can follow the following tutorial:  
+
+
+> make clean
+
+You need an ElasticSearch instance, if not available, download and install elasticsearch executing:
+> make install_elasticsearch
+
+Make sure you have the instance up and running.  
+> elasticsearch-2.4.0/bin/elasticsearch -d
+
+Install third-party libraries:
+> make requirements
+
+Setup test data
+> make data
+
+Run LDA to discover topics
+> make topics
+
+Compute coherence scores for the discovered topics
+> make coherence
+
 
 Project Organization
-------------
+--------------------
 
     ├── LICENSE
     ├── Makefile           <- Makefile with commands like `make data` or `make train`
@@ -15,15 +38,7 @@ Project Organization
     │   ├── processed      <- The final, canonical data sets for modeling.
     │   └── raw            <- The original, immutable data dump.
     │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
-    │
     ├── models             <- Trained and serialized models, model predictions, or model summaries
-    │
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
-    │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
     │
     ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
     │   └── figures        <- Generated graphics and figures to be used in reporting
@@ -42,7 +57,6 @@ Project Organization
     │   │
     │   ├── models         <- Scripts to train models and then use trained models to make
     │   │   │                 predictions
-    │   │   ├── predict_model.py
     │   │   └── train_model.py
     │   │
     │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
