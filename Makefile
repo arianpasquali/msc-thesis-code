@@ -14,20 +14,18 @@ requirements:
 install_elasticsearch:
 	src/data/install_elasticsearch.sh
 
-# index_wikipedia_en:
-	# src/data/install_elasticsearch.sh	
-
 data: requirements
-	python src/data/make_dataset.py
+	python src/data/make_dataset.py --elastic_address localhost:9200 --elastic_index 20newsgroups
 
-train: data
-	python src/data/train_lda_model.py
+topics:
+	python src/models/train_lda_model.py
 
-coherence: train
-	python src/models/compute_coherence.py
+coherence:
+	python src/models/compute_topic_coherence.py
 
 clean:
 	find . -name "*.pyc" -exec rm {} \;
+	find . -name "*.db" -exec rm {} \;
 
 lint:
 	flake8 --exclude=lib/,bin/,docs/conf.py .
