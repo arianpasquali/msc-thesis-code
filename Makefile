@@ -14,8 +14,11 @@ requirements:
 install_elasticsearch:
 	src/data/install_elasticsearch.sh
 
-data: requirements
+data:
 	python src/data/make_dataset.py --elastic_address localhost:9200 --elastic_index 20newsgroups
+
+data_preparation:
+    python src/features/build_features.py
 
 topics:
 	python src/models/train_lda_model.py
