@@ -11,6 +11,7 @@ BASE_WORKDIR = "../../"
 
 n_features = 50000
 
+
 # Load the 20 newsgroups dataset and vectorize it. We use a few heuristics
 # to filter out useless terms early on: the posts are stripped of headers,
 # footers and quoted replies, and common English words, words occurring in
@@ -22,31 +23,31 @@ n_features = 50000
 # @click.option('--elastic_index' default="20newsgroup",help='The person to greet.')
 def main():
     logger.info("Loading 20 Newsgroups Dataset and extracting features...")
-    dataset = fetch_20newsgroups(subset='all', 
+    dataset = fetch_20newsgroups(subset='all',
                                  categories=None,
-                                 shuffle=False, 
+                                 shuffle=False,
                                  random_state=42,
                                  remove=('headers', 'footers', 'quotes'))
 
     logger.info("Running data preparation process. This might take a while ...")
-    corpus = [ preprocessing.clean_text(x) for x in dataset.data ]
+    corpus = [preprocessing.clean_text(x) for x in dataset.data]
 
-    vectorizer = CountVectorizer(analyzer='word', 
-                                 ngram_range=(1,1), 
-                                 min_df = 20, 
-                                 stop_words = 'english',
+    vectorizer = CountVectorizer(analyzer='word',
+                                 ngram_range=(1, 1),
+                                 min_df=20,
+                                 stop_words='english',
                                  lowercase=True,
                                  max_df=0.90,
                                  max_features=n_features)
 
-    matrix =  vectorizer.fit_transform(corpus)
+    matrix = vectorizer.fit_transform(corpus)
     feature_names = vectorizer.get_feature_names()
 
     output_matrix = open(BASE_WORKDIR + '/data/processed/20newsgroups-bag-of-words.pkl', 'wb')
 
     logger.info("Dumping bag-of-words to tmp file")
     # Pickle dictionary using protocol 0.
-    pickle.dump(matrix,output_matrix)
+    pickle.dump(matrix, output_matrix)
 
     output_matrix.close()
 
@@ -54,14 +55,14 @@ def main():
 
     logger.info("Dumping vocabulary to tmp file")
     # Pickle dictionary.
-    pickle.dump(feature_names,output_vocab)
+    pickle.dump(feature_names, output_vocab)
 
     output_vocab.close()
 
     logger.info("Done!")
     logger.info("%d documents" % len(dataset.data))
     logger.info("%d categories" % len(dataset.target_names))
-    
+
 
 if __name__ == '__main__':
     log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'

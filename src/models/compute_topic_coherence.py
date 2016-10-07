@@ -7,139 +7,99 @@ Compute topics interpretability
 # Author: Arian Pasquali
 
 from __future__ import print_function
-from time import time
-from scipy import stats
 from topic_coherence import UCI, UMass
-# from topic_coherence import UMass
-import numpy as np
-import re
-import string
-import sys
 import logging
-import csv
 import os
-import pickle
-import lda
-import numpy as np
-import string
 import sqlite3
-import operator
-import datetime
 
-BASE_WORKDIR = "../../"
-
-# external_index = "tmp"
-external_index = "enwiki"
-internal_index = "20newsgroup"
+internal_index = "20newsgroups"
 test_es_address = "localhost:9200"
 
 def print_scores(scores):
-    for topic in sorted(scores, key = lambda name:name["topic_id"]):
-        logger.info('{},{},{},{},{},{}'.format(topic["topic_id"], 
-                                            topic["ngrams"],
-                                            topic["scores"]["extrinsic"]["pmi"], 
-                                            topic["scores"]["extrinsic"]["cpp"], 
-                                            topic["scores"]["intrinsic"]["pmi"], 
-                                            topic["scores"]["intrinsic"]["cpp"]
-                                            ))
+    logger.info("Results ----------------------------------------")
+    for topic in sorted(scores, key=lambda name: name["topic_id"]):
+        logger.info('{},{},{},{}'.format(topic["topic_id"],
+                                         topic["ngrams"],
+                                         topic["scores"]["intrinsic"]["uci"],
+                                         topic["scores"]["intrinsic"]["umass"]
+                                         ))
 
 def print_top_topics(scores, coherence_type, coherence_measure):
-    # lambda_sortby = 
-
     logger.info("------------------------------------------------")
-    logger.info("Most coherent topics using {} {}".format(coherence_type,coherence_measure))
-    for topic in sorted(scores, key = lambda name:name["scores"][coherence_type][coherence_measure], reverse=True):
-        logger.info('Topic {}: Coherence {}: {}'.format(topic["topic_id"], 
-                                                        topic["scores"][coherence_type][coherence_measure], 
+    logger.info("Most coherent topics using {} {}".format(coherence_type, coherence_measure))
+    for topic in sorted(scores, key=lambda name: name["scores"][coherence_type][coherence_measure], reverse=True):
+        logger.info('Topic {}: coherence {}: {}'.format(topic["topic_id"],
+                                                        topic["scores"][coherence_type][coherence_measure],
                                                         topic["ngrams"]))
 
-    
-
-
-def persist_results(c,results):
+def persist_results(c, results):
     tuples = []
 
     for item in results:
-        doc = ( int(item["n_topics"]), 
-                int(item["topic_id"]),
-                item["ngrams"],
-                item["dataset_name"],
-                item["scores"]["extrinsic"]["cpp"],
-                item["scores"]["extrinsic"]["pmi"],
-                item["scores"]["intrinsic"]["cpp"],
-                item["scores"]["intrinsic"]["pmi"]
-                )
+        doc = (int(item["n_topics"]),
+               int(item["topic_id"]),
+               item["ngrams"],
+               item["dataset_name"],
+               item["scores"]["intrinsic"]["umass"],
+               item["scores"]["intrinsic"]["uci"]
+               )
         tuples.append(doc)
 
-    c.executemany('INSERT INTO `topic_coherence_scores`(`n_topics`,`topic_id`,`ngrams`,`dataset_name`,`extrinsic_umass`,`extrinsic_uci`,`intrinsic_umass`,`intrinsic_uci`) VALUES (?,?,?,?,?,?,?,?)',tuples)
+    c.executemany(
+        'INSERT INTO `topic_coherence_scores`(`n_topics`,`topic_id`,`ngrams`,`dataset_name`,`intrinsic_umass`,`intrinsic_uci`) VALUES (?,?,?,?,?,?)',
+        tuples)
 
 
 def main():
     dataset_name = "20newsgroups"
 
-    # intrinsic_uci = UCI(internal_index,"page",test_es_address)
-    # intrinsic_umass = UMass(internal_index,"page",test_es_address)
-    intrinsic_uci = UCI(internal_index,"post",test_es_address)
-    intrinsic_umass = UMass(internal_index,"post",test_es_address)
-    extrinsic_uci = UCI(external_index,"page",test_es_address)
-    extrinsic_umass = UMass(external_index,"page",test_es_address)
+    intrinsic_uci = UCI(internal_index, "page", test_es_address)
+    intrinsic_umass = UMass(internal_index, "page", test_es_address)
 
-    conn = sqlite3.connect(BASE_WORKDIR + 'data/20newsgroup.db')
+    conn = sqlite3.connect('../../data/topics.db')
 
     c = conn.cursor()
 
     logger.info("Clear data")
-    c.execute('DELETE FROM `topic_coherence_scores` WHERE `dataset_name` == "'+ dataset_name +'" ')
+    c.execute('DELETE FROM `topic_coherence_scores` WHERE `dataset_name` == "' + dataset_name + '" ')
     conn.commit()
 
     resultset = c.execute('SELECT * FROM `topics` ORDER BY `topic_id` ASC')
 
     scores = []
 
-    start = datetime.datetime.now()
-    
     for row in resultset:
         topic_id = row[0]
         n_topics = row[1]
-        dataset_name = row[2]    
+        dataset_name = row[2]
         ngrams = row[3]
 
-        print('[{}] Total Topics [{}], Topic {}: {}'.format(dataset_name,n_topics,topic_id,ngrams))
+        logger.info('[{}] N_Topics [{}], Topic {}: {}'.format(dataset_name, n_topics, topic_id, ngrams))
 
         ngrams_list = ngrams.split(" ")
 
-        extrinsic_umass_result = extrinsic_umass.fit(ngrams_list)
-        intrinsic_umass_result = intrinsic_umass.fit(ngrams_list)
-
-        extrinsic_uci_result = extrinsic_uci.fit(ngrams_list)
-        intrinsic_uci_result = intrinsic_uci.fit(ngrams_list)
+        intrinsic_umass_score = intrinsic_umass.fit(ngrams_list)
+        # intrinsic_uci_score = intrinsic_uci.fit(ngrams_list)
+        intrinsic_uci_score = 0
 
         doc = {
-            "n_topics":int(n_topics),
-            "topic_id":int(topic_id),
-            "dataset_name":dataset_name,
-            "ngrams":ngrams,
-            "scores":{
-                "intrinsic":{
-                    "cpp":intrinsic_umass_result,
-                    "pmi":intrinsic_uci_result
-                }, 
-                "extrinsic":{
-                    "cpp":extrinsic_umass_result,
-                    "pmi":extrinsic_uci_result
-                }}
+            "n_topics": int(n_topics),
+            "topic_id": int(topic_id),
+            "dataset_name": dataset_name,
+            "ngrams": ngrams,
+            "scores": {
+                "intrinsic": {
+                "umass": intrinsic_umass_score,
+                "uci": intrinsic_uci_score
+                }
             }
+        }
         scores.append(doc)
 
-    stop = datetime.datetime.now()
-    elapsed = stop - start
-    print("Time spent " + str(elapsed))
-    persist_results(c,scores)
-    # print_top_topics(scores,"intrinsic","pmi")
-    # print_top_topics(scores,"intrinsic","cpp")
-    # print_top_topics(scores,"extrinsic","pmi")
-    # print_top_topics(scores,"extrinsic","cpp")
+    persist_results(c, scores)
+
     print_scores(scores)
+    print_top_topics(scores,"intrinsic","umass")
 
     conn.commit()
     conn.close()
@@ -148,7 +108,7 @@ if __name__ == '__main__':
     log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
     logging.basicConfig(level=logging.INFO, format=log_fmt)
     logger = logging.getLogger(__name__)
-    # logger.info('making final data set from raw data')
+    logger.info('Compute topic coherence scores')
 
     # not used in this stub but often useful for finding various files
     # project_dir = os.path.join(os.path.dirname(__file__), os.pardir, os.pardir)
@@ -157,6 +117,6 @@ if __name__ == '__main__':
     # load up the .env entries as environment variables
     # load_dotenv(find_dotenv())
 
-    os.chdir(os.path.dirname(os.path.realpath(__file__)))    
+    os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
-    main()    
+    main()

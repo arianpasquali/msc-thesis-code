@@ -9,8 +9,9 @@ from sklearn.datasets import fetch_20newsgroups
 
 
 @click.command()
-@click.option('--elastic_address', default="localhost:9200", prompt='Inform Elastic Search Address', help='ElasticSearch address')
-@click.option('--elastic_index', default="20newsgroups",help='The person to greet.')
+@click.option('--elastic_address', default="localhost:9200", prompt='Inform Elastic Search Address',
+              help='ElasticSearch address')
+@click.option('--elastic_index', default="20newsgroups", help='The person to greet.')
 def main(elastic_address, elastic_index):
     """ Runs data processing scripts to turn raw data from (../raw) into
         cleaned data ready to be analyzed (saved in ../processed).
@@ -21,9 +22,9 @@ def main(elastic_address, elastic_index):
     logger.info("Loading 20 newsgroups dataset")
 
     dataset = fetch_20newsgroups(subset='all',
-                                shuffle=True,
-                                random_state=42,
-                                remove=('headers', 'footers', 'quotes'))
+                                 shuffle=True,
+                                 random_state=42,
+                                 remove=('headers', 'footers', 'quotes'))
 
     logger.info("%d documents" % len(dataset.data))
     logger.info("%d categories" % len(dataset.target_names))
@@ -40,6 +41,7 @@ def main(elastic_address, elastic_index):
         i += 1
 
     logger.info(elastic_index + " index ready on elasticsearch")
+
 
 if __name__ == '__main__':
     log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
