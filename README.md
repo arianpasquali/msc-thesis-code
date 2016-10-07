@@ -54,16 +54,20 @@ Project Organization
     │   │
     │   ├── data           <- Scripts to download or generate data
     │   │   └── make_dataset.py
+    │   │   └── local_persistence.py
+    │   │   └── create_database.sql
+    │   │   └── install_elasticsearch.sh
     │   │
     │   ├── features       <- Scripts to turn raw data into features for modeling
     │   │   └── build_features.py
+    │   │   └── preprocessing.py
     │   │
     │   ├── models         <- Scripts to train models and then use trained models to make
     │   │   │                 predictions
-    │   │   └── train_model.py
+    │   │   └── train_lda_model.py
+    │   │   └── topic_coherence.py
+    │   │   └── compute_topic_coherence.py
     │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
     │
     └── tox.ini            <- tox file with settings for running tox; see tox.testrun.org
 
