@@ -19,6 +19,9 @@ Install third-party libraries:
 Setup test data
 > make data
 
+Run data preparation script to compute documents into bag-of-words 
+> make data_preparation
+
 Run LDA to discover topics
 > make topics
 
