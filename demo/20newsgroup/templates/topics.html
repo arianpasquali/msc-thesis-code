@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='tsort.min.js') }}"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css" />
+</head>
+
+<body>
+
+<table class="tableSorter">
+	<tr>
+		<th>Topic id</th>
+		<th>Topic words</th>
+		<th>Extrinsic UMass</th>
+		<th>Extrinsic UCI</th>
+		<th>Intrinsic UMass</th>
+		<th>Intrinsic UCI</th>
+	</tr>
+
+	{% for topic in topics %}
+	<tr>
+		<td>{{ topic.topic_id }}</td>
+		<td>{{ topic.topic_ngrams }}</td>
+		<td>{{ topic.extrinsic_umass }}</td>
+		<td>{{ topic.extrinsic_uci }}</td>
+		<td>{{ topic.intrinsic_umass }}</td>
+		<td>{{ topic.intrinsic_uci }}</td>
+	</tr>
+	{% endfor %}
+	
+</table>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('table.tableSorter').tableSort(
+			{
+				animation: 'slide',
+				speed: 1000
+			}
+			);
+	});
+</script>
+
+</body>
+</html>

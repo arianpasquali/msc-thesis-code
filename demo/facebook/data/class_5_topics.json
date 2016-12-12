@@ -1,0 +1,77 @@
+[
+  {
+    "umass": 0.9469,
+    "uci": 1.6097,
+    "topic": "movimento, veja, dilma, lula, folha, juventude, greve, caminhoneiros, convoca"
+  },
+  {
+    "umass": 0.0157,
+    "uci": -0.5678,
+    "topic": "dia, brasil, frente, dilma, movimento, rio, paulo, mbl, congresso"
+  },
+  {
+    "umass": 0.4564,
+    "uci": -2.5235,
+    "topic": "governo, brasil, poder, povo, lei, partido, anos, pessoas, bem"
+  },
+  {
+    "umass": -1.1572,
+    "uci": 0.1078,
+    "topic": "impeachment, camargo, mariana, povo, brasileiros, beatriz, oliveira, ruas, dia"
+  },
+  {
+    "umass": -1.1793,
+    "uci": 0.4328,
+    "topic": "impeachment, camargo, mariana, povo, beatriz, oliveira, mascarenhas, brasil, ruas"
+  },
+  {
+    "umass": -0.9491,
+    "uci": 0.6764,
+    "topic": "impeachment, ruas, dia, beatriz, oliveira, mariana, camargo, cara, mascarenhas"
+  },
+  {
+    "umass": -0.7213,
+    "uci": 0.8695,
+    "topic": "impeachment, dia, ruas, apoio, mariana, camargo, mascarenhas, coragem, beatriz"
+  },
+  {
+    "umass": 0.8675,
+    "uci": -0.3332,
+    "topic": "line, revoltados, reis, marcello, brasil, banco, deus, equipe, futuro"
+  },
+  {
+    "umass": 0.246,
+    "uci": 0.7529,
+    "topic": "dilma, lula, movimento, presidente, ministro, lava, governo, stf, jato"
+  },
+  {
+    "umass": 0.0317,
+    "uci": 0.7259,
+    "topic": "movimento, brasil, livre, ajude, mbl, impeachment, construir, luta, povo"
+  },
+  {
+    "umass": 0.9367,
+    "uci": -0.842,
+    "topic": "povo, brasil, governo, chega, greve, apoio, pessoas, podemos, impostos"
+  },
+  {
+    "umass": 1.9867,
+    "uci": -0.9029,
+    "topic": "caso, governo, crise, compra, grave, ministro, brasil, ministros, dinheiro"
+  },
+  {
+    "umass": -1.0779,
+    "uci": 0.0391,
+    "topic": "impeachment, ruas, beatriz, oliveira, povo, dia, hora, camargo, mariana"
+  },
+  {
+    "umass": 0.7636,
+    "uci": -0.5581,
+    "topic": "governo, dinheiro, brasil, dilma, patricia, quer, pagar, pessoas, melo"
+  },
+  {
+    "umass": -1.1664,
+    "uci": 0.5135,
+    "topic": "impeachment, dia, ruas, beatriz, oliveira, povo, mariana, camargo, mascarenhas"
+  }
+]

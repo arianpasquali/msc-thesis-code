@@ -1,0 +1,54 @@
+{
+  "type": "network",
+  "version": "1.0",
+  "data": "data.json",
+  "logo": {
+    "file": "images/logo.png",
+    "link": "",
+    "text": "LIAAD"
+  },
+  "text": {
+    "paper" : "./assessing-topic-discovery-22.pdf",
+    "more": "Arian Pasquali, Marcela Canavarro, Ricardo Campos, and Alípio M. Jorge. Assessing topic discovery evaluation measures on facebook publications of political activists in brazil. In In Proceedings of the International Conference on Computer Science & Software Engineering, C3S2E, 2016.",
+    "intro": "Assessing topic discovery evaluation measures on Facebook publications of political activists in Brazil",
+    "title": "Demo : Facebook pages of political activists in Brazil"
+  },
+  "legend": {
+    "edgeLabel": "Page Likes",
+    "colorLabel": "Political Content Class",
+    "nodeLabel": "Facebook Page"
+  },
+  "features": {
+    "search": true,
+    "groupSelectorAttribute": "political_class_name",
+    "hoverBehavior": "dim"
+  },
+  "informationPanel": {
+    "groupByEdgeDirection": false,
+    "imageAttribute": false
+  },
+  "sigma": {
+    "drawingProperties": {
+      "defaultEdgeType": "curve",
+      "defaultHoverLabelBGColor": "#002147",
+      "defaultLabelBGColor": "#ddd",
+      "activeFontStyle": "bold",
+      "defaultLabelColor": "#000",
+      "labelThreshold": 12,
+      "defaultLabelHoverColor": "#fff",
+      "fontStyle": "bold",
+      "hoverFontStyle": "bold",
+      "defaultLabelSize": 20
+    },
+    "graphProperties": {
+      "maxEdgeSize": 2.5,
+      "minEdgeSize": 1,
+      "minNodeSize": 5,
+      "maxNodeSize": 25
+    },
+    "mouseProperties": {
+      "maxRatio": 20,
+      "minRatio": 0.75
+    }
+  }
+}

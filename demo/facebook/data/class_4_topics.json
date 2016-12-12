@@ -1,0 +1,77 @@
+[
+  {
+    "umass": 0.0112,
+    "uci": 0.3568,
+    "topic": "brasil, eric, ano, balbinus, crise, movimento, governo, pior, dilma"
+  },
+  {
+    "umass": -0.4355,
+    "uci": -0.0308,
+    "topic": "dilma, vem, impeachment, dia, presidente, rua, eduardo, processo, contas"
+  },
+  {
+    "umass": 2.3663,
+    "uci": -1.2674,
+    "topic": "frente, rio, matriz, prefeitura, santa, sul, centro, bandeira, parque"
+  },
+  {
+    "umass": -1.0118,
+    "uci": 1.6322,
+    "topic": "folha, dilma, sociais, redes, cunha, impeachment, folhapress, eduardo, stf"
+  },
+  {
+    "umass": 1.4052,
+    "uci": -1.0413,
+    "topic": "adicionar, brasil, lei, foto, boa, capa, bom, poder, direito"
+  },
+  {
+    "umass": -0.884,
+    "uci": 1.2248,
+    "topic": "lava, folha, jato, lula, veja, moro, dilma, juiz, sergio"
+  },
+  {
+    "umass": -0.0408,
+    "uci": 1.0434,
+    "topic": "folha, odebrecht, marcelo, paulo, propina, globo, campanha, vaccari, veja"
+  },
+  {
+    "umass": 0.6172,
+    "uci": -0.4546,
+    "topic": "brasil, lula, dilma, carta, sempre, homem, passo, bem, palavras"
+  },
+  {
+    "umass": 1.0141,
+    "uci": -1.0548,
+    "topic": "brasil, rua, avenida, paulo, presidente, vargas, paulista, santo, carlos"
+  },
+  {
+    "umass": 0.2703,
+    "uci": -1.2498,
+    "topic": "dia, vem, rua, brasil, hoje, ruas, pessoas, hora, amigos"
+  },
+  {
+    "umass": -0.564,
+    "uci": -0.8978,
+    "topic": "dinheiro, folha, governo, dilma, mil, anos, maior, conta, federal"
+  },
+  {
+    "umass": -1.0026,
+    "uci": 0.2055,
+    "topic": "dilma, lula, folha, veja, governo, quer, petista, partido, presidente"
+  },
+  {
+    "umass": -0.9704,
+    "uci": 0.7942,
+    "topic": "folha, lula, redes, filho, sociais, cpi, dilma, petrobras, campanha"
+  },
+  {
+    "umass": -0.8244,
+    "uci": 1.1743,
+    "topic": "folha, sociais, redes, dilma, lava, ministro, stf, gilmar, contas"
+  },
+  {
+    "umass": 0.0493,
+    "uci": -0.4347,
+    "topic": "dilma, ministro, governo, presidente, rousseff, segundo, queda, caso, conta"
+  }
+]

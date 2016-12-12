@@ -1,0 +1,77 @@
+[
+  {
+    "umass": 1.2956,
+    "uci": -1.0777,
+    "topic": "rio, esquerda, professor, janeiro, paulo, carlos, universidade, partir, centro"
+  },
+  {
+    "umass": -0.234,
+    "uci": -0.7974,
+    "topic": "brasil, governo, povo, presidente, federal, direitos, direito, poder, caso"
+  },
+  {
+    "umass": -0.9667,
+    "uci": 2.9435,
+    "topic": "garis, greve, trabalhadores, luta, comlurb, sindicato, rio, gari, chapa"
+  },
+  {
+    "umass": 0.2046,
+    "uci": 0.2993,
+    "topic": "transporte, aumento, copa, movimento, mundo, governo, passe, livre, tarifa"
+  },
+  {
+    "umass": 0.1059,
+    "uci": 0.4649,
+    "topic": "povo, negro, marcha, reaja, campanha, internacional, anos, luta, dia"
+  },
+  {
+    "umass": -1.338,
+    "uci": -0.034,
+    "topic": "ato, dia, policiais, rio, pessoas, protesto, frente, apoio, rua"
+  },
+  {
+    "umass": 0.2126,
+    "uci": -0.9875,
+    "topic": "bem, pessoas, coisa, cidade, sempre, poder, fazendo, anos, bom"
+  },
+  {
+    "umass": -0.625,
+    "uci": -0.648,
+    "topic": "direitos, rio, dia, humanos, janeiro, ativistas, mil, caso, segundo"
+  },
+  {
+    "umass": -0.6009,
+    "uci": 0.1894,
+    "topic": "movimento, dia, coletivo, popular, movimentos, rede, social, luta, coletiva"
+  },
+  {
+    "umass": 0.3216,
+    "uci": 0.3205,
+    "topic": "apoio, moradores, prefeitura, vila, luta, hoje, solidariedade, novas, praia"
+  },
+  {
+    "umass": 1.8384,
+    "uci": -0.4285,
+    "topic": "povo, anos, pior, pessoas, banco, hoje, dias, brasileiro, infelizmente"
+  },
+  {
+    "umass": 0.5367,
+    "uci": 0.9179,
+    "topic": "parque, pic, nic, circulo, dia, poder, cidade, gente, podemos"
+  },
+  {
+    "umass": -0.9491,
+    "uci": -0.2924,
+    "topic": "rio, vila, moradores, prefeitura, projeto, comunidade, prefeito, eduardo, copa"
+  },
+  {
+    "umass": -1.3151,
+    "uci": -0.1125,
+    "topic": "parque, augusta, cidade, municipal, prefeitura, dia, luta, rua, guarda"
+  },
+  {
+    "umass": 1.5133,
+    "uci": -0.7576,
+    "topic": "mulheres, pessoas, sociedade, forma, vida, mulher, nunca, grupo, homens"
+  }
+]

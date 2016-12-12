@@ -1,0 +1,77 @@
+[
+  {
+    "umass": 1.6433,
+    "uci": 0.9273,
+    "topic": "povo, brasil, brasileiro, ruas, golpe, divida, brasileiros, auditoria, presidente"
+  },
+  {
+    "umass": 0.0404,
+    "uci": -0.9735,
+    "topic": "forma, sociedade, poder, sistema, crise, grande, bem, maior, economia"
+  },
+  {
+    "umass": 0.641,
+    "uci": 0.257,
+    "topic": "rio, favelas, moradores, projeto, favela, zona, cidade, dia, cidades"
+  },
+  {
+    "umass": -0.958,
+    "uci": -0.16,
+    "topic": "brasil, presidente, povo, dinheiro, lula, maior, partido, comunista, poder"
+  },
+  {
+    "umass": -0.5118,
+    "uci": -1.6976,
+    "topic": "anos, globo, eua, grande, grupo, dias, maior, ano, governo"
+  },
+  {
+    "umass": 1.4094,
+    "uci": -0.4375,
+    "topic": "artigo, paulo, eduardo, carlos, entrevista, luiz, deputado, antonio, silva"
+  },
+  {
+    "umass": -0.0737,
+    "uci": 0.3706,
+    "topic": "anos, mulheres, jovens, redes, negros, releituras, direitos, brasil, universidade"
+  },
+  {
+    "umass": -0.2241,
+    "uci": 0.7344,
+    "topic": "dilma, direitos, brasil, partido, pena, lei, presidenta, direito, crime"
+  },
+  {
+    "umass": -0.6469,
+    "uci": -0.9867,
+    "topic": "sempre, bem, vida, gente, dia, nunca, pessoas, coisa, tempo"
+  },
+  {
+    "umass": 1.4538,
+    "uci": 0.8101,
+    "topic": "governador, movimento, nacional, financiamento, reforma, paulo, professores, governo, alckmin"
+  },
+  {
+    "umass": -1.004,
+    "uci": 0.6659,
+    "topic": "governo, presidente, dilma, cunha, eduardo, federal, lei, processo, penal"
+  },
+  {
+    "umass": -0.1554,
+    "uci": 2.0485,
+    "topic": "lava, luis, nassif, federal, presidente, jato, juiz, dinheiro, lula"
+  },
+  {
+    "umass": -1.1676,
+    "uci": 0.1933,
+    "topic": "brasil, povo, governo, dilma, lula, militar, disse, verdade, guerra"
+  },
+  {
+    "umass": -1.3717,
+    "uci": -1.3805,
+    "topic": "mulheres, pessoas, mundo, deus, bem, vida, brasil, dia, filme"
+  },
+  {
+    "umass": 0.9253,
+    "uci": -0.3713,
+    "topic": "deus, pessoas, anos, homem, brasileiros, verdade, presente, identidade, pais"
+  }
+]

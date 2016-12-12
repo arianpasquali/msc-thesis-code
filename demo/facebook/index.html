@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" lang="en" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml" itemscope itemtype="http://schema.org/Map">
+
+<head>
+<title>LIAAD - Facebook Network Visualization Demo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,user-scalable=no" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+
+<!--[if IE]><script type="text/javascript" src="js/excanvas.js"></script><![endif]--> <!-- js/default.js -->
+  <script src="js/jquery/jquery.min.js" type="text/javascript"></script>
+  <script src="js/sigma/sigma.min.js" type="text/javascript" language="javascript"></script>
+    <script src="js/sigma/sigma.parseJson.js" type="text/javascript" language="javascript"></script>
+  <script src="js/fancybox/jquery.fancybox.pack.js" type="text/javascript" language="javascript"></script>
+  <script src="js/main.js" type="text/javascript" language="javascript"></script>
+
+  <link rel="stylesheet" type="text/css" href="js/fancybox/jquery.fancybox.css"/>
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+  <link rel="stylesheet" media="screen and (max-height: 770px)" href="css/tablet.css" />
+</head>
+
+
+<body>
+  <div class="sigma-parent">
+    <div class="sigma-expand" id="sigma-canvas"></div>
+  </div>
+<div id="mainpanel">
+  <div class="col">
+		<div id="maintitle"></div>
+    <div id="title"></div>
+    <div id="titletext"></div>
+    <div class="info cf">
+      <dl>
+        <dt class="moreinformation"></dt>
+        <!-- <dd class="line"><a href="assessing-topic-discovery-22.pdf" class="line fb">More about this visualisation</a></dd> -->
+
+        <dd class="line"><a target="_top" href="#information_abstract" class="line">About the paper</a></dd>
+      </dl>
+      <!-- <dl>
+        <dt class="moreinformation"></dt>
+        <dd class="line"><a target="_blank" href="assessing-topic-discovery-22.pdf" class="line">Full text paper</a></dd>
+      </dl> -->
+      <dl>
+        <dt class="moreinformation"></dt>
+        <!-- <dd class="line"><a href="assessing-topic-discovery-22.pdf" class="line fb">More about this visualisation</a></dd> -->
+
+        <dd class="line"><a  target="_top" href="#information" class="line">About the data set</a></dd>
+      </dl>
+
+    </div>
+<div id="legend">
+	<div class="box">
+		<h2>Legend:</h2>
+		<dl>
+		<dt class="node"></dt>
+		<dd></dd>
+		<dt class="edge"></dt>
+		<dd></dd>
+		<dt class="colours"></dt>
+		<dd></dd>		
+    <dt style='background-image: url("");'><b>Node size</b></dt>
+    <dd>Number of fans</dd>   
+		</dl>
+	</div>
+</div> 
+    <div class="b1">
+    <form>
+      <div id="search" class="cf"><h2>Search:</h2>
+        <input type="text" name="search" value="Search by name" class="empty"/><div class="state"></div>
+        <div class="results"></div>
+      </div>
+      <!-- <div class="cf" id="attributeselect"><h2>Political Content Class Selector:</h2>
+        <div class="select">Select Political Content Class</div>
+	<div class="list cf"></div>
+      </div> -->
+    </form>
+    </div>
+  </div>
+
+  <div id="information_abstract">
+  <h2 style="line-height: 1.5;
+text-align: center">Assessing topic discovery evaluation measures on 
+  <br/>
+    Facebook publications of political activists in Brazil</h2>
+
+    <br/>
+    <p >
+    <strong>
+    <ol style="line-height: 1.5;
+text-align: center">
+      <li style="display: inline;">Arian Pasquali</li>
+      <li style="display: inline;">- Marcela Canavarro</li>
+      <li style="display: inline;">- Ricardo Campos</li>
+      <li style="display: inline;">- Alípio M. Jorge</li>
+    </ol>
+    </strong>
+    </p>
+
+    <h3>abstract</h3>
+    <p>
+      Automatic topic detection in document collections is an im- portant tool for various tasks. In particular, it is valuable for studying and understanding socio-political phenomena. A currently relevant example is the automatic analysis of streams of posts issued by different activist groups in the current Brazilian turmoil, through the analysis of the gen- erated streams of texts published on the web. It is useful to determine the relative importance of the different topics identified. We can find in the literature proposals for mea- suring topic relevance. In this paper, we adopt two of such measures and apply them to data sets extracted from Face- book pages related to Brazilian political activism. On top of the analysis, we then carry an experimental evaluation of the human interpretability for these two measures by com- paring their outcomes with the opinion of three Brazilian professionals from the field of Communication Science and media-activists.
+    <p/>
+
+    <h3>citation</h3>
+    <!-- <br/> -->
+    <p>
+      <ol>
+        <li style="
+        font-style: italic;
+        padding-left: 40px;
+        /*padding-right: 40px;*/
+        ">
+          Arian Pasquali, Marcela Canavarro, Ricardo Campos, and Alípio M. Jorge. Assessing topic discovery evaluation measures on facebook publications of political activists in brazil. In In Proceedings of the International Conference on Computer Science and Software Engineering, C3S2E, 2016.
+        </li>
+      </ol>
+    </p>
+
+    <!-- <h3>Full text paper</h3> -->
+    <br/>
+    <p style="text-align: center">
+      
+      <span>
+      <a target="_blank" href="http://dl.acm.org/citation.cfm?doid=2948992.2949015" class="line" style="font-size: 16px;">... Full Paper ... </a>
+      </span>
+
+    </p>
+
+  </div>
+
+  <div id="information">    
+
+    <h2>The Data Set</h2>
+    <br/>
+    <p>
+    All data was collected in mid-March, 2016, using the appli- cation Netvizz 1.25 which retrieved 314,973 documents (posts, photos, videos, link shares and events) for the 36 pages together. Each page generated one tab file, and the six files of each class were considered together, as a unique data set, which means that the experiment runs into 6 data sets - one per each 6-page class.
+    </p>
+    <p>
+      Netvizz lets the researcher choose between the last N posts and all posts published in a window of time. We opted to collect data from March 1, 2015, to February 29, 2016, because that was an intensive period in the Brazilian political context, generating lots of relevant content in social net- works. 
+
+      The generated data set aggregates 313,514 posts, considering each status update, photo, video, note and link share on a page as a document.      
+    </p>
+
+
+    <h4>Polical View Classes</h4>
+    <p>
+    <p>
+<h4>Class 1</h4> - social movement with a singular main cause: page focused on a specific kind of Right, disseminating top- ics related to its main cause. It is managed by activists who maintain actions on the streets and on digital social networks.
+</p>
+<p>
+<h4>Class 2</h4> - grassroots media: leftist collective identities1 that disseminate own-produced and third-party news pieces, mainly about social movements, popular demonstrations and other related topics. Many of them were born from massive popular protests in Brazil in 2013 and tend to be neither pro-President Dilma Rousseff nor pro-impeachment. They are frequently confronting mass-media outlets’ versions on political topics.
+</p>
+<p>
+<h4>Class 3</h4> - Pro-President Dilma Rousseff administration: news outlets that disseminate own-produced pieces. They also tend to share lots of content from each other and are frequently confronting mass-media outlets’ versions on po- litical topics.
+</p>
+<p>
+<h4>Class 4</h4> - Rightist news outlets that disseminate own- produced and third-party pieces that demand president Dilma Rousseff impeachment. They are also consistently against left-wing administrations in other Latin American countries and adopt a strong discourse against corruption.
+</p>
+<p>
+<h4>Class 5</h4> - Rightist pages that spread viral memes and third-party links demanding President Dilma Rousseff im- peachment. They are frequently against left-wing admin- istrations in other Latin American countries and are more focused on easy-to-turn-viral content than analytical or de- scriptive news pieces.
+</p>
+<p>
+<h4>Class 6</h4> - Pages with a progressivist view of political themes. They are more focused on easy-to-turn-viral content than analytical or descriptive news pieces although some- times they publish third-party news, usually with sarcastic comments.
+</p>
+<p>
+It is important to note that none of the pages is a Face- book page of any traditional media corporation and all of them are named as a collective identity instead of a singu- lar individual’s profile (either a public person or a common user). Nevertheless, a few of them might be managed and updated by only one person.
+</p>
+    </p>
+   <!-- Assessing topic discovery evaluation measures on facebook publications of political activists in brazil. In In Proceedings of the International Conference on Computer Science & Software Engineering, C3S2E, 2016. -->
+  </div>
+</div>
+	<div id="zoom">
+  		<div class="z" rel="in"></div> <div class="z" rel="out"></div> <div class="z" rel="center"></div>
+	</div>
+	<div id="copyright">
+		<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="images/CC.png" /></a></div>
+	</div>
+<div id="attributepane">
+<div class="text">
+	<div title="Close" class="left-close returntext"><div class="c cf"><span>Return to the full network</span></div></div>	
+<div class="headertext">
+	<span>Information Pane</span>
+</div>	
+  <div class="nodeattributes">
+    <div class="name"></div>
+	<div class="data"></div>
+    <div class="p_topics">Topics:</div>
+    <div class="link_topics">
+      <ul>
+      </ul>
+    </div>
+    <div class="p">Connections:</div>
+    <div class="link">
+      <ul>
+      </ul>
+    </div>
+  </div>
+	</div>
+</div>
+<div id="developercontainer">
+	<a href="http://www.inesctec.pt/" title="INESC TEC"><div id="oii"><span>INESC TEC</span></div></a>
+	<!-- <a href="http://jisc.ac.uk" title="JISC"><div id="jisc"><span>JISC</span></div></a>	 -->
+</div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-21293169-4']);
+  _gaq.push(['_setDomainName', 'none']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>
