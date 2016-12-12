@@ -4,10 +4,8 @@ Code related to my MSc thesis
 This project contains source code related to my Msc thesis entitled `Automatic coherence evaluation applied to topic models'.
 To explore it you can follow the following tutorial:  
 
-demos
----------------
 
-20newsgroup
+20newsgroup demo
 ---------------
 View detected topics and coherence scores from 20newsgroup: 
 
@@ -17,7 +15,7 @@ View detected topics and coherence scores from 20newsgroup:
 
 open in your browser http://localhost:5000
 
-facebook
+facebook demo
 ---------------
 
 Explore network from Facebook pages and their topics:
