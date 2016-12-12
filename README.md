@@ -12,14 +12,18 @@ demos
 View detected topics and coherence scores from 20newsgroup: 
 
 > cd demo/20newsgroup
+
 > python app.py
+
 open in your browser http://localhost:5000
 
 facebook
 ---------------
 
-Explore network from Facebook pages and their topics.
+Explore network from Facebook pages and their topics:
+
 > cd demo/facebook
+
 > open index.html
 
 
